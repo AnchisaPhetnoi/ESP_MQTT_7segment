@@ -68,21 +68,21 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     switch ((esp_mqtt_event_id_t)event_id) {
     case MQTT_EVENT_CONNECTED:
         ESP_LOGI(TAG, "MQTT_EVENT_CONNECTED");
-        msg_id = esp_mqtt_client_publish(client, "KMITL/SIET/65030018/qos1", "data_3", 0, 1, 0);
+        msg_id = esp_mqtt_client_publish(client, "KMITL/SIET/65030289/qos1", "data_3", 0, 1, 0);
         ESP_LOGI(TAG, "sent publish successful, msg_id=%d", msg_id);
 
-        msg_id = esp_mqtt_client_subscribe(client, "KMITL/SIET/65030018/qos0", 0);
+        msg_id = esp_mqtt_client_subscribe(client, "KMITL/SIET/65030289/qos0", 0);
         ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
         // 12. add subscribe topic
-        msg_id = esp_mqtt_client_subscribe(client, "KMITL/SIET/65030018/topic/7seg", 0);
+        msg_id = esp_mqtt_client_subscribe(client, "KMITL/SIET/65030289/topic/7seg", 0);
         ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
 
-        msg_id = esp_mqtt_client_subscribe(client, "KMITL/SIET/65030018/qos1", 1);
+        msg_id = esp_mqtt_client_subscribe(client, "KMITL/SIET/65030289/qos1", 1);
         ESP_LOGI(TAG, "sent subscribe successful, msg_id=%d", msg_id);
 
-        msg_id = esp_mqtt_client_unsubscribe(client, "KMITL/SIET/65030018/qos1");
+        msg_id = esp_mqtt_client_unsubscribe(client, "KMITL/SIET/65030289/qos1");
         ESP_LOGI(TAG, "sent unsubscribe successful, msg_id=%d", msg_id);
         break;
     case MQTT_EVENT_DISCONNECTED:
